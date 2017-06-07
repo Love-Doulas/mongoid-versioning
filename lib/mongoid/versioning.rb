@@ -132,7 +132,7 @@ module Mongoid
     def clone_document
       attrs = as_document.__deep_copy__
       attrs["version"] = 1 if attrs.delete("versions")
-      process_localized_attributes(attrs)
+      process_localized_attributes(self, attrs)
       attrs
     end
 
