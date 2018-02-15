@@ -14,13 +14,13 @@ module Mongoid
     included do
       field :version, type: Integer, default: 1
 
-      embeds_many \
-        :versions,
-        class_name: self.name,
-        validate: false,
-        cyclic: true,
-        inverse_of: nil,
-        versioned: true
+      # embeds_many \
+      #   :versions,
+      #   class_name: self.name,
+      #   validate: false,
+      #   cyclic: true,
+      #   inverse_of: nil,
+      #   versioned: true
 
       set_callback :save, :before, :revise, if: :revisable?
 
