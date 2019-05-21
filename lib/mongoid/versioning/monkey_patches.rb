@@ -2,6 +2,10 @@ default_options = Mongoid::Fields::Validators::Macro::OPTIONS
 Mongoid::Fields::Validators::Macro.send(:remove_const, :OPTIONS)
 Mongoid::Fields::Validators::Macro.send(:const_set, :OPTIONS, default_options + [:versioned])
 
+default_relation_options = Mongoid::Relations::Options::COMMON
+Mongoid::Relations::Options.send(:remove_const, :COMMON)
+Mongoid::Relations::Options.send(:const_set, :COMMON, default_relation_options + [:versioned])
+
 module Mongoid
   module Fields
     class Standard
